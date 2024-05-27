@@ -23,10 +23,25 @@ const Layout = () => {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/blogs">Blogs</Link>
+            <Link to="/blog">Blog</Link>
           </li>
           <li>
             <Link to="/contact">Contact</Link>
+          </li>
+          <li>
+            <Link to="/category">category</Link>
+          </li>
+          <li>
+            <Link to="/product">Product</Link>
+          </li>
+          <li>
+            <Link to="/questions">any questions?</Link>
+          </li>
+          <li>
+            <Link to="/helpCenter">help center</Link>
+          </li>
+          <li>
+            <Link to="/schedule">schedule</Link>
           </li>
         </ul>
       </nav>
