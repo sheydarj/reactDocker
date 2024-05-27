@@ -1,59 +1,32 @@
 import "./App.css";
 import Confetti from "./Confetti";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from './components/Home/Home';
+import Layout from './components/Layout/Layout';
+import Contact from './components/Contact/Contact';
+import NoPage from './components/NoPage/NoPage';
+import About from './components/About/About';
+
 
 const shareMessage = "I just ran my first container using Docker";
 const shareLink = "https://docker.com/";
 
 const App = () => {
   return (
-    <div className="App">
-      <Confetti />
-      <header className="App-header">
-        <h1 style={{ marginBottom: "0px" }}>Congratulations!!!</h1>
-        <p style={{ marginTop: "10px", marginBottom: "50px" }}>
-          You ran your first container.
-        </p>
-        <div>
-          <a
-            target="_blank"
-            href={
-              "https://twitter.com/intent/tweet?text=" +
-              shareMessage +
-              "&url=" +
-              shareLink
-            }
-            class="fa-brands fa-x-twitter"
-            rel="noopener noreferrer"
-          >
-            {" "}
-          </a>
-          <a
-            target="_blank"
-            href={
-              "https://www.linkedin.com/sharing/share-offsite/?url=" + shareLink
-            }
-            class="fa-brands fa-linkedin"
-            rel="noopener noreferrer"
-          >
-            {" "}
-          </a>
-          <a
-            target="_blank"
-            href={
-              "https://reddit.com/submit?title=" +
-              shareMessage +
-              "&url=" +
-              shareLink
-            }
-            class="fa-brands fa-reddit"
-            rel="noopener noreferrer"
-          >
-            {" "}
-          </a>
-        </div>
-      </header>
-    </div>
-  );
-};
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="about" element={<About />} >
+              
+            </Route>
+            <Route path="contact" element={<Contact />} />
+            <Route path="*" element={<NoPage />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    );
+}
 
 export default App;
